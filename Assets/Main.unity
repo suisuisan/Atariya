@@ -1062,10 +1062,10 @@ GameObject:
   - component: {fileID: 997483023}
   - component: {fileID: 997483026}
   - component: {fileID: 997483025}
-  - component: {fileID: 997483027}
   - component: {fileID: 997483029}
   - component: {fileID: 997483028}
   - component: {fileID: 997483030}
+  - component: {fileID: 997483027}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 997483022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9750e1924f80046af9e8aec70036c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 47704fb8662456d498dcf889e772e793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &997483028
