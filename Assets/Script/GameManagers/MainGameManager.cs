@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(EnemyManager))]
 
+///
+/// メインゲームマネージャ
+///
 public class MainGameManager : MonoBehaviour
 {
     //ゲームステートのリアクティブプロパティを生成　初期値はready
@@ -20,20 +23,39 @@ public class MainGameManager : MonoBehaviour
         get { return CurrentState; }
     }
 
+    //ゲーム全体用のインプットイベントプロバイダ
     private IGMInputEventProvider _inputEventProvider;
 
     //privateの_inputEvent providerを渡すためだけのプロバイダ
     protected IGMInputEventProvider InputEventProvider { get { return _inputEventProvider; } }
 
+    //プレイヤーマネージャ
     private PlayerManager _PlayerManager;
+
+    //敵マネージャ
     private EnemyManager _EnemyManager;
 
+    //オーディオマネージャ
+    private AudioManager g_AudioManager;
 
     // Use this for initialization
     void Start()
     {
-        _inputEventProvider = GetComponent<IGMInputEventProvider>();
+        //サウンドもらうよ
+        g_AudioManager = AudioManager.Instance;
+        
+        //Q:
+        //この辺登録諸々を、プログラマーまかせじゃなくて、アーティスト任せにできないだろうか
+        //SEを読み込み
+        //
+        g_AudioManager.LoadSE(SEResouces.ReadyCount, "button04b");
+        g_AudioManager.LoadSE(SEResouces.Hit1, "CarCrash_1");
+        g_AudioManager.LoadSE(SEResouces.Hit2, "CarCrash_2");
+        g_AudioManager.LoadSE(SEResouces.WallHit1, "Wall_Hit");
+        g_AudioManager.LoadSE(SEResouces.WallHit2, "Wall_Hit2");
 
+        //インプットマネージャもらうよ
+        _inputEventProvider = GetComponent<IGMInputEventProvider>();
 
         //CurrentStateを購読して、変更が加えられたときに実行する関数を登録しておく
         //stateにはいまのstateが入っている
@@ -74,7 +96,8 @@ public class MainGameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 初期化コルーチン(なぜコルーチン化しているのでしょ）
+    /// 初期化コルーチン
+    /// Q:　なぜ初期化だけコルーチン化しているのでしょ）
     /// </summary>
     /// <returns></returns>
     private IEnumerator InitializeCoroutine()
@@ -88,14 +111,15 @@ public class MainGameManager : MonoBehaviour
         //アクティブ
         _PlayerManager.CreatePlayer();
 
+        //プレイヤーの立ち位置をフェンスの向こう側へずらす。
+        _PlayerManager.Position(new Vector3(0,0,-2));
+
         //敵生成＆管理クラス
         _EnemyManager = GetComponent<EnemyManager>();
 
+        //敵の生成を開始
         _EnemyManager.StartEmit();
-
-        //入力管理クラスを取得
-
-        //点数計算管理クラスを生成
+  
         
         CurrentState.Value = GameState.OP;
         yield return null;
@@ -126,6 +150,7 @@ public class MainGameManager : MonoBehaviour
             .Where(_=>CurrentGameState.Value==GameState.Ready)
             .Subscribe(x=>
             {
+                
                 //playに移行する
                 CurrentState.Value = GameState.Play;
                 _PlayerManager.ChangeState(0,PlayerState.Normal);
@@ -139,13 +164,13 @@ public class MainGameManager : MonoBehaviour
     private void Play()
     {
         Debug.Log("Play GameManger");
+        _PlayerManager.Position(new Vector3(0, 0, 2));
 
         //プレイヤー管理クラスからプレイヤーが全員死亡したこととを受け取った場合
         _PlayerManager.PlayersDied
             .Where(x=>x==true)
             .Subscribe(_=>
         {
-            //Debug.Log("Resultr");
             //Result
             CurrentState.Value = GameState.Result;
         }).AddTo(this);
@@ -160,13 +185,15 @@ public class MainGameManager : MonoBehaviour
     {
         Debug.Log("Result GameManger");
         
-        //なんらかのボタンが押された場合、このシーンを読み込みなおす
+        //ボタンが押された場合、このシーンを読み込みなおす
         InputEventProvider.Next
             .Where(x=>CurrentGameState.Value == GameState.Result)
             .Where(x=>x==true)
             .Subscribe(_ =>
             {
-                Debug.Log("--------- Restart---------");
+                ///Q:
+                ///シーンをロードしなおして初期化するのは邪道だろうか
+                ///
                 SceneManager.LoadScene(0);
             }).AddTo(this);
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 
-public class PlayerManager : ObjectManager
+public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _prefab = null;
@@ -110,6 +110,20 @@ public class PlayerManager : ObjectManager
         //プレイヤーを登録しておく
         _players.Add(core);
 
+    }
+
+    //プレイヤーの移動
+    public void Position( Vector3 in_pos )
+    {
+        //移動させるよ
+        for(int i=0; i<_players.Count; i++)
+        {
+            var mv = _players[i].GetComponent<PlayerMover>();
+            if (mv!=null)
+            {
+                mv.RelativePosition(in_pos);
+            }
+        }
     }
 }
 

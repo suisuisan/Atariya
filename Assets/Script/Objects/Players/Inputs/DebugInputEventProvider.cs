@@ -22,13 +22,17 @@ public class DebugInputEventProvider : BasePlayerComponent, IInputEventProvider
             //インプットの中でInput RightArrowを購読してキーボード情報を取得する
             .Select(_ => Input.GetKey(KeyCode.D))
             //RightArrowにSetし、強制的に通知させる
-            .Subscribe(x => _RightArrow.Value=x);
+            .Subscribe(x =>
+            {
+                _RightArrow.SetValueAndForceNotify(x);
+            });
+
 
         this.UpdateAsObservable()
             //インプットの中でInput LeftArrowを購読してキーボード情報を取得する
             .Select(_ => Input.GetKey(KeyCode.A))
             //_LeftArrowにSetし、強制的に通知させる
-            .Subscribe(x => _LeftArrow.Value = x);
+            .Subscribe(x => _LeftArrow.SetValueAndForceNotify(x));
     }
 
 }

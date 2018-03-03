@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
+/// <summary>
+/// ゲームステート
+/// </summary>
 public enum GameState
 {
     Initializing,
@@ -12,7 +15,10 @@ public enum GameState
     Result
 }
 
+//Q:
 //これはクラス？enum???
+//enumをreactive properryにするためのクラスっていうところかしら？？？？
+//
 public class GameStateReactiveProperty : ReactiveProperty<GameState>
 {
     //コンストラクタ

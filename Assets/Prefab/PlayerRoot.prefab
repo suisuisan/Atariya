@@ -448,7 +448,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702677612612962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000038394, y: 3.445, z: 0.69}
+  m_LocalPosition: {x: -3.04, y: 3.445, z: 0.69}
   m_LocalScale: {x: 27.993034, y: 27.993038, z: 27.993038}
   m_Children:
   - {fileID: 4674961357846780}
@@ -528,6 +528,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad811dc706b45f4fa78e1fb44286e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Core: {fileID: 0}
+  rb: {fileID: 0}
+  Score_total: 0
+  g_scoremanager: {fileID: 0}
 --- !u!114 &114169935567338944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,6 +544,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gabage: {fileID: 1084742128551718, guid: 5928658e77b6d4941892973567e1e6b6, type: 2}
+  last_gabage: {fileID: 1084742128551718, guid: 5ee876c78046d9442a9e3fedfbb3b0b9,
+    type: 2}
 --- !u!114 &114267782779757710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -551,8 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e0bfccfb3c38f429aea68dfed3a7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velmax: 5
-  velmin: 0.02
+  velmax: 2.5
+  velmin: 0.5
   randrot: 60
 --- !u!114 &114303648361529970
 MonoBehaviour:
@@ -565,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330611878e705d4a90dee46b09732c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 80
+  MoveSpeed: 10
 --- !u!114 &114357093904562538
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -40,9 +40,19 @@ public class PlayerCharacterContoroller : BasePlayerComponent
     /// 指定した方向へ移動
     /// </summary>
     /// <param name="velocity">Velocity.</param>
-    public void Move(Vector3 velocity)
+    public void Move(Vector2 velocity)
     {
-        inputDirection = velocity;
+        var dotvel = Vector2.Dot(_rigidbody.velocity.normalized, velocity.normalized);
+
+        if(_rigidbody.velocity.magnitude == 0)
+        {
+            inputDirection = velocity;
+        }
+        //一定速度以上で、ないせきとって同じ方向だったら加速しない
+        else if (dotvel < 0.8 || _rigidbody.velocity.magnitude < velmax)
+        {
+            inputDirection = velocity;
+        }
     }
 
     /// <summary>

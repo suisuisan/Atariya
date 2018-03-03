@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084742128551718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 3.509, z: 3.2}
+  m_LocalPosition: {x: -10.21, y: 3.509, z: 3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4968373736751782}
@@ -118,7 +118,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 38950e792ba3eff49898e3ed586cfe34, type: 2}
+  - {fileID: 2100000, guid: 956944a96e9b2de46a3b13dcf13304e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.65, y: 0.62}
+  m_Size: {x: 0.57, y: 1.65}
   m_EdgeRadius: 0
 --- !u!95 &95004457921676958
 Animator:
@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Score: 50
+  SERes: 0600000007000000
 --- !u!114 &114539346590946090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,3 +222,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9e1b12044ed9540a81e65afe9dd336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathmax: 3
+  replace: {fileID: 1084742128551718, guid: 5ee876c78046d9442a9e3fedfbb3b0b9, type: 2}

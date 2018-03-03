@@ -17,6 +17,7 @@ public enum PlayerState
     Dead            //死亡
 }
 
+//カスタムクラスのリアクティブプロパティのため
 public class PlayerStateReactiveProperty : ReactiveProperty<PlayerState>
 {
     public PlayerStateReactiveProperty() { }

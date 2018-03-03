@@ -54,6 +54,8 @@ GameObject:
   - component: {fileID: 50360734890269188}
   - component: {fileID: 61129081661254660}
   - component: {fileID: 114264045786029972}
+  - component: {fileID: 114463978913652010}
+  - component: {fileID: 114055335233611970}
   m_Layer: 0
   m_Name: Broken_Fence_Root 1
   m_TagString: Untagged
@@ -147,7 +149,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 38950e792ba3eff49898e3ed586cfe34, type: 2}
+  - {fileID: 2100000, guid: 956944a96e9b2de46a3b13dcf13304e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -253,6 +255,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114055335233611970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592525386159022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c61d417aa0dd754093bf973d38bdef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Score: 1000
+  SERes: 
 --- !u!114 &114264045786029972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -264,3 +279,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4cbaa26a2b24a41abb90f8b23c3e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114463978913652010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592525386159022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f642487a403656247a470dfc9026cfa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyTime: 10

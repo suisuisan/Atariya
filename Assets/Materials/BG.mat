@@ -29,6 +29,6 @@ Material:
     m_Floats:
     - _OutlineWidth: 0.00001
     m_Colors:
-    - _Color: {r: 0.5519031, g: 0.62737143, b: 0.64705884, a: 1}
+    - _Color: {r: 0.35878024, g: 0.5349301, b: 0.5808823, a: 1}
     - _MainColor: {r: 0.6544118, g: 0.6544118, b: 0.6544118, a: 1}
     - _OutlineColor: {r: 1, g: 0, b: 0, a: 0}

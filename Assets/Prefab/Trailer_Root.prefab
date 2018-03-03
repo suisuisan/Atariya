@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Score: 50
+  SERes: 0600000007000000
 --- !u!114 &114899542366841866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Score: 500
+  SERes: 
 --- !u!114 &114962822574147346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,3 +334,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Score: 100
+  SERes: 0100000002000000

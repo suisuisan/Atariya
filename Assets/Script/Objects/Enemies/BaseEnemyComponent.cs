@@ -11,12 +11,18 @@ public abstract class BaseEnemyComponent : MonoBehaviour
 {
     //プレイヤーコアコンポーネント
     protected EnemyCore Core;
+    protected AudioManager AudioManager;
 
-    //初期化処理
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
     private void Start()
     {
         //コアにプレイヤーコアをいれるよ
         Core = GetComponent<EnemyCore>();
+
+        //オーディオマネージャ
+        AudioManager = AudioManager.Instance;
 
         //Coreの情報が確定したら初期化を呼び出す
         Core.OnInitializeAsync
